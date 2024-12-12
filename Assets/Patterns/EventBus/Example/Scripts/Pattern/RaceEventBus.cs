@@ -1,4 +1,4 @@
-namespace Patterns.EventBus.Exmaple
+namespace Patterns.EventBus.Example
 {
 	public class RaceEventBus : EventBus<RaceEventType>
 	{
