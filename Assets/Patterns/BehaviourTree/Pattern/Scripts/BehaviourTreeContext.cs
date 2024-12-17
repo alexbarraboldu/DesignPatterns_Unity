@@ -8,10 +8,12 @@ namespace Patterns.BehaviourTree
 	/// <summary>
 	/// Parent class for a BehvaiourTree
 	/// </summary>
+	[Serializable]
 	public abstract class BehaviourTreeContext
 	{
 		[SerializeField] private BlackboardSO _blackboardSO;
 
+		/*[SerializeReference, SubclassSelector]*/
 		protected Node node;
 		private Node[] _nodes;
 

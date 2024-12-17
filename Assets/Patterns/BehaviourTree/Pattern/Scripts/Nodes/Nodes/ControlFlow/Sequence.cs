@@ -1,7 +1,10 @@
 namespace Patterns.BehaviourTree
 {
+	//[Serializable]
 	public class Sequence : Composite
 	{
+		//public Sequence() : base() { }
+
 		public Sequence(params Node[] nodes) : base(nodes)
 		{
 

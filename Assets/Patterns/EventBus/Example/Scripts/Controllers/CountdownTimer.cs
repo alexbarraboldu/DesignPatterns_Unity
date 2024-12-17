@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 namespace Patterns.EventBus.Example
@@ -27,7 +27,7 @@ namespace Patterns.EventBus.Example
 		private IEnumerator Countdown()
 		{
 			_currentTime = _duration;
-			
+
 			while (_currentTime > 0)
 			{
 				yield return new WaitForSeconds(1f);

@@ -1,7 +1,10 @@
 namespace Patterns.BehaviourTree
 {
+	//[Serializable]
 	public class Selector : Composite
 	{
+		//public Selector() : base() { }
+
 		public Selector(params Node[] nodes) : base(nodes)
 		{
 
