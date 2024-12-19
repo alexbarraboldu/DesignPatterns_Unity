@@ -9,42 +9,57 @@ namespace Patterns.BehaviourTree
 	/// Parent class for a BehvaiourTree
 	/// </summary>
 	[Serializable]
-	public abstract class BehaviourTreeContext
+	public class BehaviourTreeContext : MonoBehaviour
 	{
 		[SerializeField] private BlackboardSO _blackboardSO;
 
-		/*[SerializeReference, SubclassSelector]*/
-		protected Node node;
+		private Node node;
 		private Node[] _nodes;
 
 		private float timer = 0f;
 		private float timerRate = 1f;
-		protected float TimerRate
+
+		public Node Node
 		{
-			get => TimerRate;
-			set => TimerRate = value;
+			get => node;
+			set => node = value;
 		}
 
-		protected void SetNodesArray()
+		public float TimerRate
+		{
+			get => timerRate;
+			set => timerRate = value;
+		}
+
+		private void Update()
+		{
+			RunBehaviourTree(Time.deltaTime);
+		}
+
+		public void SetNodesArray()
 		{
 			List<Node> nodes = new List<Node>();
 			TraverseNodeTree(node, ref nodes);
 			_nodes = nodes.ToArray();
 		}
 
-		public virtual void RunBehaviourTree(float deltaTime)
+		protected virtual void RunBehaviourTree(float deltaTime)
 		{
 			if (timer >= timerRate)
 			{
 				node.RunNode();
 				timer = 0f;
 
-				PrintAllNodesStatus();
-				if (node.status == NodeStatus.RUNNING) ResetNodeTree();
-				PrintAllNodesStatus();
+				//PrintAllNodesStatus();
+				if (node.status == NodeStatus.RUNNING)
+				{
+					ResetNodeTree();
+					PrintAllNodesStatus();
+				}
 			}
 			else timer += deltaTime;
 		}
+
 		private void ResetNodeTree()
 		{
 			for (int i = 0; i < _nodes.Length; i++)
