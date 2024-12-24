@@ -1,4 +1,7 @@
-public interface ICondition
+namespace Patterns.BehaviourTree
 {
-	public bool Condition();
+	public interface ICondition
+	{
+		public bool Condition();
+	}
 }

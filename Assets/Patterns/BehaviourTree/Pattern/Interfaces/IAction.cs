@@ -1,6 +1,7 @@
-using Patterns.BehaviourTree;
-
-public interface IAction
+namespace Patterns.BehaviourTree
 {
-	public NodeStatus Action();
+	public interface IAction
+	{
+		public NodeStatus Action();
+	}
 }

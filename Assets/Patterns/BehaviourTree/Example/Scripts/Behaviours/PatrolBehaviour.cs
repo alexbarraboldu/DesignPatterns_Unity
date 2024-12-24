@@ -1,36 +1,37 @@
 using System;
 
-using Patterns.BehaviourTree;
-
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(BehaviourTreeContext))]
-public class PatrolBehaviour : MonoBehaviour, IAction
+namespace Patterns.BehaviourTree.Example
 {
-	private NavMeshAgent _agent;
-
-	private NodeStatus isPatroling = NodeStatus.RUNNING;
-
-	[SerializeField] private Transform[] patrolPoints = Array.Empty<Transform>();
-	private int _currentPatrolPoint = 0;
-
-	private void Awake()
+	[RequireComponent(typeof(BehaviourTreeContext))]
+	public class PatrolBehaviour : MonoBehaviour, IAction
 	{
-		_agent = GetComponentInParent<NavMeshAgent>();
-	}
+		private NavMeshAgent _agent;
 
-	public NodeStatus Action()
-	{
-		if (_agent.remainingDistance == 0f)
+		private NodeStatus isPatroling = NodeStatus.RUNNING;
+
+		[SerializeField] private Transform[] patrolPoints = Array.Empty<Transform>();
+		private int _currentPatrolPoint = 0;
+
+		private void Awake()
 		{
-			if (patrolPoints[_currentPatrolPoint].position.IsApproximately(_agent.destination, 1f))
-			{
-				if (_currentPatrolPoint < patrolPoints.Length - 1) _currentPatrolPoint++;
-				else _currentPatrolPoint = 0;
-			}
-			_agent.SetDestination(patrolPoints[_currentPatrolPoint].position);
+			_agent = GetComponentInParent<NavMeshAgent>();
 		}
-		return isPatroling;
+
+		public NodeStatus Action()
+		{
+			if (_agent.remainingDistance == 0f)
+			{
+				if (patrolPoints[_currentPatrolPoint].position.IsApproximately(_agent.destination, 1f))
+				{
+					if (_currentPatrolPoint < patrolPoints.Length - 1) _currentPatrolPoint++;
+					else _currentPatrolPoint = 0;
+				}
+				_agent.SetDestination(patrolPoints[_currentPatrolPoint].position);
+			}
+			return isPatroling;
+		}
 	}
 }
