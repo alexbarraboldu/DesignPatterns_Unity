@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using Patterns.BehaviourTree;
-using Patterns.BehaviourTree.Example;
 
 using UnityEngine;
 using UnityEngine.AI;
