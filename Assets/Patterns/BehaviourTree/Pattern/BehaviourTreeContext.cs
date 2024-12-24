@@ -22,7 +22,12 @@ namespace Patterns.BehaviourTree
 		public Node Node
 		{
 			get => node;
-			set => node = value;
+			set
+			{
+				Debug.Assert(value == null);
+				node = value;
+				SetNodesArray();
+			}
 		}
 
 		public float TimerRate
@@ -36,7 +41,7 @@ namespace Patterns.BehaviourTree
 			RunBehaviourTree(Time.deltaTime);
 		}
 
-		public void SetNodesArray()
+		private void SetNodesArray()
 		{
 			List<Node> nodes = new List<Node>();
 			TraverseNodeTree(node, ref nodes);

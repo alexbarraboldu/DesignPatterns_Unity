@@ -713,7 +713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158943141}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -873,30 +873,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 572707134}
     m_Modifications:
-    - target: {fileID: 321772699390508196, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: m_BaseOffset
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2356736714744095942, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: patrolPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 700104498}
-    - target: {fileID: 2356736714744095942, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: patrolPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 497364610}
-    - target: {fileID: 2356736714744095942, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: patrolPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 1447445287}
-    - target: {fileID: 2356736714744095942, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: patrolPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 160213467}
     - target: {fileID: 4357945547361576227, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5219142916811066857, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 700104498}
+    - target: {fileID: 5219142916811066857, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 497364610}
+    - target: {fileID: 5219142916811066857, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: patrolPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1447445287}
+    - target: {fileID: 5219142916811066857, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: patrolPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 160213467}
     - target: {fileID: 8716881414037268328, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
