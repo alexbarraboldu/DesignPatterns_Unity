@@ -8,7 +8,7 @@ namespace Patterns.Observer.Example
 
 		void Start()
 		{
-			_bikeController = FindObjectOfType<BikeController>();
+			_bikeController = FindFirstObjectByType<BikeController>();
 		}
 
 		private void OnGUI()

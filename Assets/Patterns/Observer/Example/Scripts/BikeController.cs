@@ -21,7 +21,7 @@ namespace Patterns.Observer.Example
 		private void Awake()
 		{
 			_hudController = gameObject.AddComponent<HUDController>();
-			_cameraController = FindObjectOfType<CameraController>();
+			_cameraController = FindFirstObjectByType<CameraController>();
 		}
 
 		private void Start()

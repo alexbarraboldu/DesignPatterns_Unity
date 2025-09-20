@@ -8,7 +8,7 @@ namespace Patterns.State.Example
 
 		private void Awake()
 		{
-			_bikeController = FindObjectOfType<BikeController>();
+			_bikeController = FindFirstObjectByType<BikeController>();
 		}
 
 		private void OnGUI()

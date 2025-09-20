@@ -23,7 +23,7 @@ namespace Patterns.Singleton
 			{
 				if (_instance == null && !_isOnDestroy)
 				{
-					_instance = FindObjectOfType<T>();
+					_instance = FindFirstObjectByType<T>();
 
 					if (_instance == null)
 					{

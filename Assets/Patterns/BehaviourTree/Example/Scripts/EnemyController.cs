@@ -4,9 +4,9 @@ public static class Helpers
 {
 	public static bool IsApproximately(this Vector3 a, Vector3 b, float difference)
 	{
-		bool x = a.x >= (b.x - difference) && a.x <= (b.x + + difference);
-		bool y = a.y >= (b.y - difference) && a.y <= (b.y + + difference);
-		bool z = a.z >= (b.z - difference) && a.z <= (b.z + + difference);
+		bool x = a.x >= (b.x - difference) && a.x <= (b.x + +difference);
+		bool y = a.y >= (b.y - difference) && a.y <= (b.y + +difference);
+		bool z = a.z >= (b.z - difference) && a.z <= (b.z + +difference);
 
 		return x && y && z;
 	}
@@ -44,7 +44,7 @@ namespace Patterns.BehaviourTree.Example
 
 			//Action pAct = new Action(patrolBehaviour.Action);
 
-			
+
 			//Sequence s1 = new Sequence(aCon, aAct);
 			//Sequence s2 = new Sequence(cCon, cAct);
 
