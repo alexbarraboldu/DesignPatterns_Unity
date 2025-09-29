@@ -18,6 +18,13 @@ public class EditorScripting : EditorWindow
 		//EditorWindow.GetWindow<EditorScripting>();
 	}
 
+	[MenuItem("Tools / Custom Controls")]
+	public static void NewMenuOption()
+	{
+		Debug.LogWarning("Custom Controls pressed");
+		//PlayerPrefs.DeleteAll();
+	}
+
 	private void OnGUI()
 	{
 		GUILayout.Label("Base Settings", EditorStyles.boldLabel);
