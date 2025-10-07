@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Launcher : MonoBehaviour
@@ -15,6 +13,6 @@ public class Launcher : MonoBehaviour
 			projectile,
 			transform.TransformPoint(offset),
 			transform.rotation);
-		body.velocity = Vector3.forward * velocity;
+		body.linearVelocity = Vector3.forward * velocity;
 	}
 }

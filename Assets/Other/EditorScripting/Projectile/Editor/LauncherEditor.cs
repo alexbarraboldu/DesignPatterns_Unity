@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 
-using UnityEngine;
 using UnityEditor;
-using log4net.Util;
+
+using UnityEngine;
 
 [CustomEditor(typeof(Launcher))]
 public class LauncherEditor : Editor
@@ -80,7 +79,7 @@ public class LauncherEditor : Editor
 			}
 		}
 
-		GUILayout.EndArea ();
+		GUILayout.EndArea();
 		Handles.EndGUI();
 	}
 }

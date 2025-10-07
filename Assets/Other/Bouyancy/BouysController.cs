@@ -42,17 +42,17 @@ public class BouysController : MonoBehaviour
 
 		if (_rigidbody.transform.position.y >= 0.1)
 		{
-			_rigidbody.drag = 0f;
+			_rigidbody.linearDamping = 0f;
 		}
 		else if (_rigidbody.transform.position.y < 0f)
 		{
 			AddForceAtAllBous(force * 2);
-			_rigidbody.drag = 2f;
+			_rigidbody.linearDamping = 2f;
 		}
 		else
 		{
 			AddForceAtAllBous(force);
-			_rigidbody.drag = 5f;
+			_rigidbody.linearDamping = 5f;
 		}
 	}
 }
