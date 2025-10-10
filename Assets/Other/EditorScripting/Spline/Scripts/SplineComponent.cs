@@ -177,13 +177,16 @@ public class SplineComponent : MonoBehaviour, ISpline
 
 	void Reset()
 	{
-		points = new List<Vector3>()
+		if (points.Count == 0)
 		{
-			Vector3.forward * 3,
-			Vector3.forward * 6,
-			Vector3.forward * 9,
-			Vector3.forward * 12
-		};
+			points = new List<Vector3>()
+			{
+				Vector3.forward * 3,
+				Vector3.forward * 6,
+				Vector3.forward * 9,
+				Vector3.forward * 12
+			};
+		}
 	}
 
 	private void OnValidate()
