@@ -52,6 +52,10 @@ public class NodeDrawer : PropertyDrawer
 
 				// Draw all serialized fields for this Node (auto layout)
 				EditorGUI.PropertyField(contentRect, property, true);
+
+				///	Solo cuando esté un derivado de Task
+				///	Mostrar una lista de MonoBehaviours 
+				///	para luego seleccionar una función para añadirla a Action.action()
 			}
 
 			EditorGUI.indentLevel--;
@@ -66,7 +70,7 @@ public class NodeDrawer : PropertyDrawer
 			return EditorGUIUtility.singleLineHeight;
 
 		if (property.managedReferenceValue == null)
-			return EditorGUIUtility.singleLineHeight * 3f;
+			return EditorGUIUtility.singleLineHeight * 2f;
 
 		// Dynamically calculate full height of nested serialized fields
 		return EditorGUI.GetPropertyHeight(property, true) + EditorGUIUtility.singleLineHeight * 2f;

@@ -1,0 +1,18 @@
+{
+    "name": "Editor.Patterns.BehaviourTree",
+    "rootNamespace": "",
+    "references": [
+        "GUID:cf049338ac61b6142a97a19920c3f682"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
