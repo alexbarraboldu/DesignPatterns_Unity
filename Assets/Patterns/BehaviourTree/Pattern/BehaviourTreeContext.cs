@@ -13,7 +13,7 @@ namespace Patterns.BehaviourTree
 	{
 		[SerializeField] private BlackboardSO _blackboardSO;
 
-		private Node node;
+		[SerializeReference] private Node node;
 		private Node[] _nodes;
 
 		private float timer = 0f;

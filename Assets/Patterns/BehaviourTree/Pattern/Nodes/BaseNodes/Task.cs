@@ -1,6 +1,8 @@
+using System;
+
 namespace Patterns.BehaviourTree
 {
-	//[Serializable]
+	[Serializable]
 	public abstract class Task : Node
 	{
 		//public Task() : base() { }

@@ -48,6 +48,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _blackboardSO: {fileID: 0}
+  node:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &5219142916811066857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +164,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -191,7 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8716881414037268328}
-  - component: {fileID: 2356736714744095942}
+  - component: {fileID: 8410986062864121149}
   - component: {fileID: 7957181536536008749}
   - component: {fileID: 321772699390508196}
   m_Layer: 10
@@ -218,7 +228,7 @@ Transform:
   - {fileID: 4455601611747268490}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2356736714744095942
+--- !u!114 &8410986062864121149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,6 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c5acbf73abb5784790a6b6e7fdad71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tree: {fileID: 0}
 --- !u!136 &7957181536536008749
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ namespace Patterns.BehaviourTree.Example
 {
 	public class EnemyController : MonoBehaviour
 	{
-		private BehaviourTreeContext _tree;
+		[SerializeField] private BehaviourTreeContext _tree;
 
 		private PatrolBehaviour patrolBehaviour;
 		private ChaseBehaviour chaseBehaviour;
@@ -50,7 +50,7 @@ namespace Patterns.BehaviourTree.Example
 
 			//Selector sel = new Selector(s1, s2, pAct);
 
-			_tree.Node = //sel;
+			_tree.Node =
 				new Selector(
 					new Sequence(
 						new Condition(attackBehaviour.Condition),
@@ -65,5 +65,8 @@ namespace Patterns.BehaviourTree.Example
 
 			_tree.TimerRate = 0f;
 		}
+
+		///	Not needed in theory
+		//public BehaviourTreeContext GetBehvaiourTreeContext() => _tree;
 	}
 }

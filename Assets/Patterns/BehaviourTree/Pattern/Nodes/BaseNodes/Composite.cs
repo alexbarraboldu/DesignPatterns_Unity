@@ -1,8 +1,10 @@
 using System;
 
+using UnityEngine;
+
 namespace Patterns.BehaviourTree
 {
-	//[Serializable]
+	[Serializable]
 	public abstract class Composite : Node
 	{
 		public Composite(params Node[] nodes) : base()
@@ -10,7 +12,7 @@ namespace Patterns.BehaviourTree
 			this.nodes = nodes;
 		}
 
-		/*[SerializeReference, SubclassSelector]*/
+		[SerializeReference]
 		public Node[] nodes = Array.Empty<Node>();
 	}
 }

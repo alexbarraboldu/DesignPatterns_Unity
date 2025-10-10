@@ -3,10 +3,10 @@ using System;
 
 namespace Patterns.BehaviourTree
 {
-	//[Serializable]
+	[Serializable]
 	public class Condition : Task
 	{
-		//public Condition() { }
+		public Condition() { }
 
 		public Condition(Func<bool> methodCondition)
 		{
