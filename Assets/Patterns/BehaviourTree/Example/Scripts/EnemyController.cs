@@ -36,13 +36,13 @@ namespace Patterns.BehaviourTree.Example
 
 		private void SetBehaviourTree()
 		{
-			//Condition aCon = new Condition(attackBehaviour.Condition);
-			//Action aAct = new Action(attackBehaviour.Action);
+			//Condition aCon = new Condition(attackBehaviour.GetComponent<ICondition>());
+			//Action aAct = new Action(attackBehaviour.GetComponent<IAction>());
 
-			//Condition cCon = new Condition(chaseBehaviour.Condition);
-			//Action cAct = new Action(chaseBehaviour.Action);
+			//Condition cCon = new Condition(chaseBehaviour.GetComponent<ICondition>());
+			//Action cAct = new Action(chaseBehaviour.GetComponent<IAction>());
 
-			//Action pAct = new Action(patrolBehaviour.Action);
+			//Action pAct = new Action(patrolBehaviour.GetComponent<IAction>());
 
 
 			//Sequence s1 = new Sequence(aCon, aAct);
@@ -50,18 +50,21 @@ namespace Patterns.BehaviourTree.Example
 
 			//Selector sel = new Selector(s1, s2, pAct);
 
-			_tree.Node =
-				new Selector(
-					new Sequence(
-						new Condition(attackBehaviour.Condition),
-						new Action(attackBehaviour.Action)
-					),
-					new Sequence(
-						new Condition(chaseBehaviour.Condition),
-						new Action(chaseBehaviour.Action)
-					),
-					new Action(patrolBehaviour.Action)
-				);
+			//_tree.Node = sel;
+
+
+			//_tree.Node =
+			//	new Selector(
+			//		new Sequence(
+			//			new Condition(attackBehaviour.GetComponent<ICondition>()),
+			//			new Action(attackBehaviour.GetComponent<IAction>())
+			//		),
+			//		new Sequence(
+			//			new Condition(chaseBehaviour.GetComponent<ICondition>()),
+			//			new Action(chaseBehaviour.GetComponent<IAction>())
+			//		),
+			//		new Action(patrolBehaviour.GetComponent<IAction>())
+			//	);
 
 			_tree.TimerRate = 0f;
 		}

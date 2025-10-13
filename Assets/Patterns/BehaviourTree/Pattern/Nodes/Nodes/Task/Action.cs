@@ -1,8 +1,5 @@
 using System;
 
-using UnityEngine;
-using UnityEngine.Events;
-
 namespace Patterns.BehaviourTree
 {
 	[Serializable]
@@ -10,16 +7,16 @@ namespace Patterns.BehaviourTree
 	{
 		public Action() : base() { }
 
-		public Action(Func<NodeStatus> methodAction)
+		public Action(IAction iAction)
 		{
-			action = methodAction;
+			action = iAction;
 		}
 
-		Func<NodeStatus> action;
+		public IAction action;
 
 		public override NodeStatus RunNode()
 		{
-			return status = action();
+			return status = action.Action();
 		}
 	}
 }

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace Patterns.BehaviourTree.Example
 {
-	[RequireComponent(typeof(BehaviourTreeContext))]
+	//[RequireComponent(typeof(BehaviourTreeContext))]
 	public class PatrolBehaviour : MonoBehaviour, IAction
 	{
 		private NavMeshAgent _agent;

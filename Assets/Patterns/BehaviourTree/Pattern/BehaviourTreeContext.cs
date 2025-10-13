@@ -5,15 +5,12 @@ using UnityEngine;
 
 namespace Patterns.BehaviourTree
 {
-	/// <summary>
-	/// Parent class for a BehvaiourTree
-	/// </summary>
 	[Serializable]
 	public class BehaviourTreeContext : MonoBehaviour
 	{
 		[SerializeField] private BlackboardSO _blackboardSO;
 
-		[SerializeReference] private Node node;
+		[SerializeReference, Space(5)] private Node node;
 		private Node[] _nodes;
 
 		private float timer = 0f;
@@ -24,7 +21,8 @@ namespace Patterns.BehaviourTree
 			get => node;
 			set
 			{
-				Debug.Assert(value == null);
+				Debug.Assert(value != null);
+
 				node = value;
 				SetNodesArray();
 			}

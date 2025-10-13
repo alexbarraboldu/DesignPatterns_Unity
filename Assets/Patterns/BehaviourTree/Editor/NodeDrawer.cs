@@ -1,8 +1,13 @@
 using System;
 using System.Linq;
-using UnityEditor;
-using UnityEngine;
+
 using Patterns.BehaviourTree;
+
+using UnityEditor;
+
+using UnityEngine;
+
+using Action = Patterns.BehaviourTree.Action;
 
 [CustomPropertyDrawer(typeof(Node), true)]
 public class NodeDrawer : PropertyDrawer
@@ -13,49 +18,65 @@ public class NodeDrawer : PropertyDrawer
 	private Type[] allTypes = null;
 	private string[] allTypesName = null;
 
+	float inlinePropertyHeight = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+
+	MonoBehaviour obj = null;
+
+
 	public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 	{
 		if (property == null) return;
-		
+
 		if (allTypes == null) allTypes = GetAllNodeTypes();
 		if (allTypesName == null) allTypesName = allTypes.Select(t => t.Name).ToArray();
 
+
 		EditorGUI.BeginProperty(position, label, property);
 
-		// Draw the foldout header
+		/// FOLDOUT HEADER
 		_isExpanded = EditorGUI.Foldout(
-			new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
+			new Rect(position.x, position.y, 10, inlinePropertyHeight),
 			_isExpanded,
-			property.displayName,
+			"",
 			true
 		);
 
-		if (_isExpanded)
+		/// Adjust rect to start drawing below the foldout
+		var contentRect = new Rect(
+			position.x,
+			position.y,
+			position.width,
+			EditorGUIUtility.singleLineHeight
+		);
+
+		/// Draw a popup to switch Node subclass
+		DrawNodeTypeSelector(contentRect, property);
+
+		if (_isExpanded && property.managedReferenceValue != null)
 		{
 			EditorGUI.indentLevel++;
 
-			// Adjust rect to start drawing below the foldout
-			var contentRect = new Rect(
-				position.x,
-				position.y + EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing,
-				position.width,
-				position.height
-			);
+			contentRect.y += inlinePropertyHeight;
+			DrawNodeStatusTypeSelector(ref contentRect, property);
 
-			// Draw a popup to switch Node subclass
-			DrawTypeSelector(contentRect, property);
-
-			if (property.managedReferenceValue != null)
+			if (property.managedReferenceValue is Task)
 			{
-				// Move rect below type selector
-				contentRect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+				contentRect.y += inlinePropertyHeight;
+				DrawBehaviourObjectField(contentRect, property);
+			}
+			else if (property.managedReferenceValue is Composite)
+			{
+				EditorGUI.indentLevel++;
 
-				// Draw all serialized fields for this Node (auto layout)
-				EditorGUI.PropertyField(contentRect, property, true);
+				SerializedProperty nodeArray = property.FindPropertyRelative("nodes");
+				float nodeArrayHeight = EditorGUI.GetPropertyHeight(property.FindPropertyRelative("nodes"), true);
 
-				///	Solo cuando esté un derivado de Task
-				///	Mostrar una lista de MonoBehaviours 
-				///	para luego seleccionar una función para añadirla a Action.action()
+				contentRect.y += inlinePropertyHeight;
+				contentRect.height = nodeArrayHeight;
+
+				EditorGUI.PropertyField(contentRect, nodeArray, true);
+
+				EditorGUI.indentLevel--;
 			}
 
 			EditorGUI.indentLevel--;
@@ -66,18 +87,31 @@ public class NodeDrawer : PropertyDrawer
 
 	public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 	{
-		if (!_isExpanded)
-			return EditorGUIUtility.singleLineHeight;
+		float height = EditorGUIUtility.singleLineHeight; // Foldout
 
-		if (property.managedReferenceValue == null)
-			return EditorGUIUtility.singleLineHeight * 2f;
+		if (!_isExpanded || property.managedReferenceValue == null)
+			return height;
 
-		// Dynamically calculate full height of nested serialized fields
-		return EditorGUI.GetPropertyHeight(property, true) + EditorGUIUtility.singleLineHeight * 2f;
+		/// Node status
+		height += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+
+		if (property.managedReferenceValue is Task)
+		{
+			///	GameObject Behaviour field
+			height += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+		}
+		else if (property.managedReferenceValue is Composite)
+		{
+			///	Node Array
+			SerializedProperty nodeArray = property.FindPropertyRelative("nodes");
+			float nodeArrayHeight = EditorGUI.GetPropertyHeight(nodeArray, true);
+			height += nodeArrayHeight + EditorGUIUtility.standardVerticalSpacing;
+		}
+
+		return height;
 	}
 
-	// Draw popup for switching Node subclass
-	private void DrawTypeSelector(Rect position, SerializedProperty property)
+	private void DrawNodeTypeSelector(Rect position, SerializedProperty property)
 	{
 		var nodeType = property.managedReferenceValue == null ? typeof(Node) : property.managedReferenceValue.GetType();
 
@@ -96,6 +130,59 @@ public class NodeDrawer : PropertyDrawer
 			property.managedReferenceValue = allTypes[newIndex] == typeof(Node) ? null : Activator.CreateInstance(allTypes[newIndex]);
 			property.serializedObject.ApplyModifiedProperties();
 		}
+	}
+
+	private void DrawNodeStatusTypeSelector(ref Rect position, SerializedProperty property)
+	{
+		GUI.enabled = false;
+
+		var nodeStatus = (property.managedReferenceValue as Node).status;
+		var currentNodeStatus = nodeStatus;
+
+		currentNodeStatus = (NodeStatus)EditorGUI.EnumPopup(position, "Node Status", currentNodeStatus);
+
+		if (nodeStatus != currentNodeStatus)
+		{
+			property.serializedObject.Update();
+			(property.managedReferenceValue as Node).status = currentNodeStatus;
+			property.serializedObject.ApplyModifiedProperties();
+		}
+
+		GUI.enabled = true;
+	}
+
+	private void DrawBehaviourObjectField(Rect position, SerializedProperty property)
+	{
+		EditorGUI.LabelField(position, "Behaviour");
+
+		string labelString = "null";
+
+		position.x += EditorGUIUtility.labelWidth - 13;
+		position.width /= 3f;
+		obj = (MonoBehaviour)EditorGUI.ObjectField(position, obj, typeof(MonoBehaviour), true);
+
+		if (obj != null)
+		{
+			if (property.managedReferenceValue is Action && obj.TryGetComponent(out IAction iAction))
+			{
+				labelString = "Action Loaded";
+
+				property.serializedObject.Update();
+				(property.managedReferenceValue as Action).action = iAction;
+				property.serializedObject.ApplyModifiedProperties();
+			}
+			else if (property.managedReferenceValue is Condition && obj.TryGetComponent(out ICondition iCondition))
+			{
+				labelString = "Condition Loaded";
+
+				property.serializedObject.Update();
+				(property.managedReferenceValue as Condition).condition = iCondition;
+				property.serializedObject.ApplyModifiedProperties();
+			}
+		}
+
+		position.x += position.width;
+		EditorGUI.LabelField(position, labelString);
 	}
 
 	private static Type[] GetAllNodeTypes()

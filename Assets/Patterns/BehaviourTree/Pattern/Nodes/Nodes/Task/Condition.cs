@@ -1,6 +1,5 @@
 using System;
 
-
 namespace Patterns.BehaviourTree
 {
 	[Serializable]
@@ -8,16 +7,16 @@ namespace Patterns.BehaviourTree
 	{
 		public Condition() { }
 
-		public Condition(Func<bool> methodCondition)
+		public Condition(ICondition iCondition)
 		{
-			condition = methodCondition;
+			condition = iCondition;
 		}
 
-		Func<bool> condition;
+		public ICondition condition;
 
 		public override NodeStatus RunNode()
 		{
-			return status = condition() ? NodeStatus.SUCCESS : NodeStatus.FAILURE;
+			return status = condition.Condition() ? NodeStatus.SUCCESS : NodeStatus.FAILURE;
 		}
 	}
 }
