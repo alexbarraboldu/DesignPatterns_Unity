@@ -7,8 +7,6 @@ using UnityEditor;
 
 using UnityEngine;
 
-using Action = Patterns.BehaviourTree.Action;
-
 [CustomPropertyDrawer(typeof(Node), true)]
 public class NodeDrawer : PropertyDrawer
 {
@@ -61,8 +59,7 @@ public class NodeDrawer : PropertyDrawer
 			{
 				contentRect.y += inlinePropertyHeight;
 
-				TaskDrawerHelper.DrawBehaviourSelector(contentRect, property);
-				//TaskDrawerHelper.DrawInterfaceReferenceField(contentRect, property, label);
+				DrawBehaviourSelector(contentRect, property);
 			}
 			else if (property.managedReferenceValue is Composite)
 			{
@@ -167,37 +164,56 @@ public class NodeDrawer : PropertyDrawer
 
 	public void DrawBehaviourSelector(Rect position, SerializedProperty property)
 	{
-		var treeContext = (property.serializedObject.targetObject as BehaviourTreeContext);
+		var treeContext = property.serializedObject.targetObject as BehaviourTreeContext;
 
-		if (treeContext == null) return;
+		if (treeContext == null)
+		{
+			EditorGUI.LabelField(position, "Select behaviour", "No BehaviourTreeContext found");
+			return;
+		}
 
-		bool isActionNode = property.managedReferenceValue is Action;
-		bool isConditionNode = property.managedReferenceValue is Condition;
+		if (property.managedReferenceValue is not Task task)
+		{
+			EditorGUI.LabelField(position, "Select behaviour", "Not a task");
+			return;
+		}
 
-		MonoBehaviour[] allBehaviours = treeContext.GetComponentsInChildren<MonoBehaviour>(true).Where(behaviour => isActionNode && behaviour is IAction || isConditionNode && behaviour is ICondition).ToArray();
+		treeContext.CacheBehaviours();
 
-		if (allBehaviours.Length == 0)
+		bool isAction = task is Patterns.BehaviourTree.Action;
+		bool isCondition = task is Condition;
+
+		var validBehaviours = treeContext.BehavioursById
+			.Where(pair =>
+				isAction && pair.Value is IAction ||
+				isCondition && pair.Value is ICondition)
+			.ToArray();
+
+		if (validBehaviours.Length == 0)
 		{
 			EditorGUI.LabelField(position, "Select behaviour", "No valid behaviours found");
 			return;
 		}
 
-		string[] allBehavioursNames = allBehaviours.Select(t => t.name).ToArray();
+		string[] behaviourNames = validBehaviours
+			.Select(pair => $"{pair.Value.gameObject.name} / {pair.Value.GetType().Name}")
+			.ToArray();
 
-		MonoBehaviour currentBehaviour = null;
+		string[] behaviourIds = validBehaviours
+			.Select(pair => pair.Key)
+			.ToArray();
 
-		if (property.managedReferenceValue is Action action)
+		SerializedProperty selectedBehaviourIdProperty =
+			property.FindPropertyRelative(nameof(Task.SelectedBehaviourId));
+
+		string currentId = selectedBehaviourIdProperty.stringValue;
+
+		int currentIndex = Array.IndexOf(behaviourIds, currentId);
+
+		if (currentIndex < 0)
 		{
-			currentBehaviour = action.action as MonoBehaviour;
+			currentIndex = 0;
 		}
-		else if (property.managedReferenceValue is Condition condition)
-		{
-			currentBehaviour = condition.condition as MonoBehaviour;
-		}
-
-		int currentIndex = Array.IndexOf(allBehaviours, currentBehaviour);
-		if (currentIndex < 0) currentIndex = 0;
-
 
 		EditorGUI.BeginChangeCheck();
 
@@ -205,21 +221,18 @@ public class NodeDrawer : PropertyDrawer
 			new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
 			"Select behaviour",
 			currentIndex,
-			allBehavioursNames
+			behaviourNames
 		);
 
 		if (EditorGUI.EndChangeCheck())
 		{
-			MonoBehaviour selectedBehaviour = allBehaviours[newIndex];
+			selectedBehaviourIdProperty.stringValue = behaviourIds[newIndex];
+			property.serializedObject.ApplyModifiedProperties();
 
-			if (property.managedReferenceValue is Action selectedAction)
-			{
-				selectedAction.action = selectedBehaviour as IAction;
-			}
-			else if (property.managedReferenceValue is Condition selectedCondition)
-			{
-				selectedCondition.condition = selectedBehaviour as ICondition;
-			}
+			task.SelectedBehaviourId = behaviourIds[newIndex];
+			task.ResolveBehaviour(treeContext);
+
+			EditorUtility.SetDirty(property.serializedObject.targetObject);
 		}
 	}
 }
