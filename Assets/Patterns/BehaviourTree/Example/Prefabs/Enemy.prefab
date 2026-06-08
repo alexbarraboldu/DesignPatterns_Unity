@@ -46,15 +46,61 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38c2de7962d60324a85c3d659517e61d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Runtime.Patterns.BehaviourTree::Patterns.BehaviourTree.BehaviourTreeContext
   _blackboardSO: {fileID: 0}
+  startRunning: 0
   node:
-    rid: -2
+    rid: 9174096514834497607
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 9174096514834497607
+      type: {class: Selector, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
+      data:
+        status: 2
+        nodes:
+        - rid: 9174096514834497608
+        - rid: 9174096514834497609
+        - rid: 9174096514834497610
+    - rid: 9174096514834497608
+      type: {class: Sequence, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
+      data:
+        status: 2
+        nodes:
+        - rid: 9174096514834497611
+        - rid: 9174096514834497616
+    - rid: 9174096514834497609
+      type: {class: Sequence, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
+      data:
+        status: 2
+        nodes:
+        - rid: 9174096514834497615
+        - rid: 9174096514834497613
+    - rid: 9174096514834497610
+      type: {class: Action, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
+      data:
+        status: 2
+        SelectedBehaviourId: 
+    - rid: 9174096514834497611
+      type: {class: Condition, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
+      data:
+        status: 2
+        SelectedBehaviourId: EnemyGroup/Enemy/Behaviours/Attack|Patterns.BehaviourTree.Example.AttackBehaviour
+    - rid: 9174096514834497613
+      type: {class: Action, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
+      data:
+        status: 2
+        SelectedBehaviourId: EnemyGroup/Enemy/Behaviours/Chase|Patterns.BehaviourTree.Example.ChaseBehaviour
+    - rid: 9174096514834497615
+      type: {class: Condition, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
+      data:
+        status: 2
+        SelectedBehaviourId: 
+    - rid: 9174096514834497616
+      type: {class: Action, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
+      data:
+        status: 2
+        SelectedBehaviourId: EnemyGroup/Enemy/Behaviours/Attack|Patterns.BehaviourTree.Example.AttackBehaviour
 --- !u!1 &3008531864097284977
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,6 +162,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -137,9 +185,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3796969756097738277
 GameObject:
@@ -287,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c5acbf73abb5784790a6b6e7fdad71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tree: {fileID: 0}
+  _tree: {fileID: 2788123276897953881}
 --- !u!136 &7957181536536008749
 CapsuleCollider:
   m_ObjectHideFlags: 0

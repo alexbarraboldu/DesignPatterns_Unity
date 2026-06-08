@@ -1,6 +1,6 @@
 {
     "name": "Runtime.Patterns.BehaviourTree",
-    "rootNamespace": "Patterns.BehvaviourTree",
+    "rootNamespace": "Patterns.BehaviourTree",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [

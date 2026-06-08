@@ -20,8 +20,6 @@ public class NodeDrawer : PropertyDrawer
 
 	float inlinePropertyHeight = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
 
-	MonoBehaviour obj = null;
-
 
 	public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 	{
@@ -62,7 +60,9 @@ public class NodeDrawer : PropertyDrawer
 			if (property.managedReferenceValue is Task)
 			{
 				contentRect.y += inlinePropertyHeight;
-				DrawBehaviourObjectField(contentRect, property);
+
+				TaskDrawerHelper.DrawBehaviourSelector(contentRect, property);
+				//TaskDrawerHelper.DrawInterfaceReferenceField(contentRect, property, label);
 			}
 			else if (property.managedReferenceValue is Composite)
 			{
@@ -93,12 +93,12 @@ public class NodeDrawer : PropertyDrawer
 			return height;
 
 		/// Node status
-		height += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+		height += inlinePropertyHeight;
 
 		if (property.managedReferenceValue is Task)
 		{
 			///	GameObject Behaviour field
-			height += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+			height += inlinePropertyHeight;
 		}
 		else if (property.managedReferenceValue is Composite)
 		{
@@ -151,40 +151,6 @@ public class NodeDrawer : PropertyDrawer
 		GUI.enabled = true;
 	}
 
-	private void DrawBehaviourObjectField(Rect position, SerializedProperty property)
-	{
-		EditorGUI.LabelField(position, "Behaviour");
-
-		string labelString = "null";
-
-		position.x += EditorGUIUtility.labelWidth - 13;
-		position.width /= 3f;
-		obj = (MonoBehaviour)EditorGUI.ObjectField(position, obj, typeof(MonoBehaviour), true);
-
-		if (obj != null)
-		{
-			if (property.managedReferenceValue is Action && obj.TryGetComponent(out IAction iAction))
-			{
-				labelString = "Action Loaded";
-
-				property.serializedObject.Update();
-				(property.managedReferenceValue as Action).action = iAction;
-				property.serializedObject.ApplyModifiedProperties();
-			}
-			else if (property.managedReferenceValue is Condition && obj.TryGetComponent(out ICondition iCondition))
-			{
-				labelString = "Condition Loaded";
-
-				property.serializedObject.Update();
-				(property.managedReferenceValue as Condition).condition = iCondition;
-				property.serializedObject.ApplyModifiedProperties();
-			}
-		}
-
-		position.x += position.width;
-		EditorGUI.LabelField(position, labelString);
-	}
-
 	private static Type[] GetAllNodeTypes()
 	{
 		var baseType = typeof(Node);
@@ -197,5 +163,63 @@ public class NodeDrawer : PropertyDrawer
 		types.Add(baseType);
 
 		return types.ToArray();
+	}
+
+	public void DrawBehaviourSelector(Rect position, SerializedProperty property)
+	{
+		var treeContext = (property.serializedObject.targetObject as BehaviourTreeContext);
+
+		if (treeContext == null) return;
+
+		bool isActionNode = property.managedReferenceValue is Action;
+		bool isConditionNode = property.managedReferenceValue is Condition;
+
+		MonoBehaviour[] allBehaviours = treeContext.GetComponentsInChildren<MonoBehaviour>(true).Where(behaviour => isActionNode && behaviour is IAction || isConditionNode && behaviour is ICondition).ToArray();
+
+		if (allBehaviours.Length == 0)
+		{
+			EditorGUI.LabelField(position, "Select behaviour", "No valid behaviours found");
+			return;
+		}
+
+		string[] allBehavioursNames = allBehaviours.Select(t => t.name).ToArray();
+
+		MonoBehaviour currentBehaviour = null;
+
+		if (property.managedReferenceValue is Action action)
+		{
+			currentBehaviour = action.action as MonoBehaviour;
+		}
+		else if (property.managedReferenceValue is Condition condition)
+		{
+			currentBehaviour = condition.condition as MonoBehaviour;
+		}
+
+		int currentIndex = Array.IndexOf(allBehaviours, currentBehaviour);
+		if (currentIndex < 0) currentIndex = 0;
+
+
+		EditorGUI.BeginChangeCheck();
+
+		int newIndex = EditorGUI.Popup(
+			new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
+			"Select behaviour",
+			currentIndex,
+			allBehavioursNames
+		);
+
+		if (EditorGUI.EndChangeCheck())
+		{
+			MonoBehaviour selectedBehaviour = allBehaviours[newIndex];
+
+			if (property.managedReferenceValue is Action selectedAction)
+			{
+				selectedAction.action = selectedBehaviour as IAction;
+			}
+			else if (property.managedReferenceValue is Condition selectedCondition)
+			{
+				selectedCondition.condition = selectedBehaviour as ICondition;
+			}
+		}
 	}
 }
