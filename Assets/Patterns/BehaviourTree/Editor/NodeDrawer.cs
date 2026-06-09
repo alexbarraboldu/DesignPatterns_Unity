@@ -186,7 +186,8 @@ public class NodeDrawer : PropertyDrawer
 		var validBehaviours = treeContext.BehavioursById
 			.Where(pair =>
 				isAction && pair.Value is IAction ||
-				isCondition && pair.Value is ICondition)
+				isCondition && pair.Value is ICondition ||
+				pair.Key == "null")
 			.ToArray();
 
 		if (validBehaviours.Length == 0)
@@ -196,7 +197,7 @@ public class NodeDrawer : PropertyDrawer
 		}
 
 		string[] behaviourNames = validBehaviours
-			.Select(pair => $"{pair.Value.gameObject.name} / {pair.Value.GetType().Name}")
+			.Select(pair => $"{pair.Value?.gameObject.name ?? "null"} / {pair.Value?.GetType().Name ?? "null"}")
 			.ToArray();
 
 		string[] behaviourIds = validBehaviours

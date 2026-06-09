@@ -12,6 +12,11 @@ namespace Patterns.BehaviourTree
 		[SerializeField] private BlackboardSO _blackboardSO;
 
 		[SerializeField] private bool startRunning = false;
+
+#if UNITY_EDITOR
+		[SerializeField] private bool printAllNodesStatus = false;
+#endif
+
 		[SerializeReference, Space(5)] private Node node;
 
 		private Node[] _nodes;
@@ -77,6 +82,7 @@ namespace Patterns.BehaviourTree
 		public void CacheBehaviours()
 		{
 			behavioursById.Clear();
+			behavioursById.Add("null", null);
 
 			MonoBehaviour[] behaviours = GetComponentsInChildren<MonoBehaviour>(true)
 				.Where(behaviour =>
@@ -180,7 +186,9 @@ namespace Patterns.BehaviourTree
 				if (node.status == NodeStatus.RUNNING)
 				{
 					ResetNodeTree();
+#if UNITY_EDITOR
 					PrintAllNodesStatus();
+#endif
 				}
 			}
 			else timer += deltaTime;
@@ -195,8 +203,11 @@ namespace Patterns.BehaviourTree
 			_nodes[_nodes.Length - 1].status = NodeStatus.READY;
 		}
 
+#if UNITY_EDITOR
 		private void PrintAllNodesStatus()
 		{
+			if (!printAllNodesStatus) return;
+
 			string typeNames = "";
 			for (int i = 0; i < _nodes.Length; i++)
 			{
@@ -209,6 +220,7 @@ namespace Patterns.BehaviourTree
 			}
 			Debug.Log(typeNames);
 		}
+#endif
 
 		private bool TraverseNodeTree(Node fromNode, ref List<Node> nodeTree)
 		{

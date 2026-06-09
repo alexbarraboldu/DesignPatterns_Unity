@@ -33,13 +33,13 @@ namespace Patterns.BehaviourTree.Example
 
 			chaseTransform = canChase ? colliders[0].transform : null;
 
-			Debug.LogWarning("Can chase: " + canChase);
+			//Debug.LogWarning("Can chase: " + canChase);
 			return canChase;
 		}
 
 		public NodeStatus Action()
 		{
-			Debug.LogWarning("Chasing: "/* + Time.time*/);
+			//Debug.LogWarning("Chasing: "/* + Time.time*/);
 
 			_agent.SetDestination(chaseTransform.position);
 

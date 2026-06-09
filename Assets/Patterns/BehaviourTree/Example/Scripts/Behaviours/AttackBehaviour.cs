@@ -5,7 +5,7 @@ namespace Patterns.BehaviourTree.Example
 	public class AttackBehaviour : MonoBehaviour, IAction, ICondition
 	{
 		public bool canAttack = false;
-		public NodeStatus isAttacking = NodeStatus.RUNNING;
+		public NodeStatus isAttacking = NodeStatus.SUCCESS;
 
 		Transform attackTransform;
 
@@ -25,17 +25,17 @@ namespace Patterns.BehaviourTree.Example
 
 			attackTransform = canAttack ? colliders[0].transform : null;
 
-			Debug.LogWarning("Can attack: " + canAttack);
+			//Debug.LogWarning("Can attack: " + canAttack);
 			return canAttack;
 		}
 
 		public NodeStatus Action()
 		{
-			Debug.LogWarning("Attacking: "/* + Time.time*/);
+			//Debug.LogWarning("Attacking: "/* + Time.time*/);
 
 			Destroy(attackTransform.gameObject);
 
-			return isAttacking;
+			return NodeStatus.SUCCESS;
 		}
 	}
 }

@@ -961,6 +961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blackboardSO: {fileID: 0}
   startRunning: 0
+  printAllNodesStatus: 0
   node:
     rid: 4957847788841861186
   references:
@@ -998,258 +999,286 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
       propertyPath: node
-      value: 9174096514834497625
+      value: 9174096537607209020
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: startRunning
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
       propertyPath: 'managedReferences[-2]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497617]'
+      propertyPath: 'managedReferences[9174096537607209010]'
+      value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Action
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209011]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Selector
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497618]'
+      propertyPath: 'managedReferences[9174096537607209012]'
+      value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Action
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209013]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Sequence
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497619]'
+      propertyPath: 'managedReferences[9174096537607209014]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Sequence
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497620]'
-      value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Action
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497621]'
+      propertyPath: 'managedReferences[9174096537607209015]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Condition
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497622]'
+      propertyPath: 'managedReferences[9174096537607209016]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Action
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497623]'
+      propertyPath: 'managedReferences[9174096537607209017]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Condition
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497624]'
+      propertyPath: 'managedReferences[9174096537607209018]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Action
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497625]'
+      propertyPath: 'managedReferences[9174096537607209019]'
+      value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Action
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209020]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Selector
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497626]'
+      propertyPath: 'managedReferences[9174096537607209021]'
+      value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Action
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209022]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Sequence
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497627]'
+      propertyPath: 'managedReferences[9174096537607209023]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Sequence
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497628]'
-      value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Action
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497629]'
+      propertyPath: 'managedReferences[9174096537607209024]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Condition
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497630]'
+      propertyPath: 'managedReferences[9174096537607209025]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Action
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497631]'
+      propertyPath: 'managedReferences[9174096537607209026]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Condition
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497632]'
+      propertyPath: 'managedReferences[9174096537607209027]'
       value: Runtime.Patterns.BehaviourTree Patterns.BehaviourTree.Action
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497617].status
+      propertyPath: managedReferences[9174096537607209010].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497618].status
+      propertyPath: managedReferences[9174096537607209011].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497619].status
+      propertyPath: managedReferences[9174096537607209012].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497620].status
+      propertyPath: managedReferences[9174096537607209013].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497621].status
+      propertyPath: managedReferences[9174096537607209014].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497622].status
+      propertyPath: managedReferences[9174096537607209015].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497623].status
+      propertyPath: managedReferences[9174096537607209016].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497624].status
+      propertyPath: managedReferences[9174096537607209017].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497625].status
+      propertyPath: managedReferences[9174096537607209018].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497626].status
+      propertyPath: managedReferences[9174096537607209019].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497627].status
+      propertyPath: managedReferences[9174096537607209020].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497628].status
+      propertyPath: managedReferences[9174096537607209021].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497629].status
+      propertyPath: managedReferences[9174096537607209022].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497630].status
+      propertyPath: managedReferences[9174096537607209023].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497631].status
+      propertyPath: managedReferences[9174096537607209024].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497632].status
+      propertyPath: managedReferences[9174096537607209025].status
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497617].nodes.Array.size
+      propertyPath: managedReferences[9174096537607209026].status
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: managedReferences[9174096537607209027].status
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: managedReferences[9174096537607209011].nodes.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497618].nodes.Array.size
+      propertyPath: managedReferences[9174096537607209013].nodes.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497619].nodes.Array.size
+      propertyPath: managedReferences[9174096537607209014].nodes.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497625].nodes.Array.size
+      propertyPath: managedReferences[9174096537607209020].nodes.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497626].nodes.Array.size
+      propertyPath: managedReferences[9174096537607209022].nodes.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497627].nodes.Array.size
+      propertyPath: managedReferences[9174096537607209023].nodes.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497617].nodes.Array.data[0]'
-      value: 9174096514834497618
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497617].nodes.Array.data[1]'
-      value: 9174096514834497619
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497617].nodes.Array.data[2]'
-      value: 9174096514834497620
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497618].nodes.Array.data[0]'
-      value: 9174096514834497621
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497618].nodes.Array.data[1]'
-      value: 9174096514834497622
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497619].nodes.Array.data[0]'
-      value: 9174096514834497623
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497619].nodes.Array.data[1]'
-      value: 9174096514834497624
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497620].SelectedBehaviourId
+      propertyPath: managedReferences[9174096537607209010].SelectedBehaviourId
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497621].SelectedBehaviourId
-      value: EnemyGroup/Enemy/Behaviours/Attack|Patterns.BehaviourTree.Example.AttackBehaviour
+      propertyPath: 'managedReferences[9174096537607209011].nodes.Array.data[0]'
+      value: 9174096537607209013
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497622].SelectedBehaviourId
-      value: EnemyGroup/Enemy/Behaviours/Attack|Patterns.BehaviourTree.Example.AttackBehaviour
+      propertyPath: 'managedReferences[9174096537607209011].nodes.Array.data[1]'
+      value: 9174096537607209014
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497623].SelectedBehaviourId
-      value: 
+      propertyPath: 'managedReferences[9174096537607209011].nodes.Array.data[2]'
+      value: 9174096537607209012
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497624].SelectedBehaviourId
-      value: EnemyGroup/Enemy/Behaviours/Chase|Patterns.BehaviourTree.Example.ChaseBehaviour
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497625].nodes.Array.data[0]'
-      value: 9174096514834497626
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497625].nodes.Array.data[1]'
-      value: 9174096514834497627
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497625].nodes.Array.data[2]'
-      value: 9174096514834497628
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497626].nodes.Array.data[0]'
-      value: 9174096514834497629
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497626].nodes.Array.data[1]'
-      value: 9174096514834497630
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497627].nodes.Array.data[0]'
-      value: 9174096514834497631
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: 'managedReferences[9174096514834497627].nodes.Array.data[1]'
-      value: 9174096514834497632
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497628].SelectedBehaviourId
+      propertyPath: managedReferences[9174096537607209012].SelectedBehaviourId
       value: EnemyGroup/Enemy/Behaviours/Patrol|Patterns.BehaviourTree.Example.PatrolBehaviour
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497629].SelectedBehaviourId
+      propertyPath: 'managedReferences[9174096537607209013].nodes.Array.data[0]'
+      value: 9174096537607209015
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209013].nodes.Array.data[1]'
+      value: 9174096537607209016
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209014].nodes.Array.data[0]'
+      value: 9174096537607209017
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209014].nodes.Array.data[1]'
+      value: 9174096537607209018
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: managedReferences[9174096537607209015].SelectedBehaviourId
       value: EnemyGroup/Enemy/Behaviours/Attack|Patterns.BehaviourTree.Example.AttackBehaviour
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497630].SelectedBehaviourId
-      value: EnemyGroup/Enemy/Behaviours/Attack|Patterns.BehaviourTree.Example.AttackBehaviour
+      propertyPath: managedReferences[9174096537607209016].SelectedBehaviourId
+      value: null
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497631].SelectedBehaviourId
+      propertyPath: managedReferences[9174096537607209017].SelectedBehaviourId
       value: EnemyGroup/Enemy/Behaviours/Chase|Patterns.BehaviourTree.Example.ChaseBehaviour
       objectReference: {fileID: 0}
     - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
-      propertyPath: managedReferences[9174096514834497632].SelectedBehaviourId
+      propertyPath: managedReferences[9174096537607209018].SelectedBehaviourId
+      value: EnemyGroup/Enemy/Behaviours/Chase|Patterns.BehaviourTree.Example.ChaseBehaviour
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: managedReferences[9174096537607209019].SelectedBehaviourId
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209020].nodes.Array.data[0]'
+      value: 9174096537607209023
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209020].nodes.Array.data[1]'
+      value: 9174096537607209022
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209020].nodes.Array.data[2]'
+      value: 9174096537607209021
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: managedReferences[9174096537607209021].SelectedBehaviourId
+      value: EnemyGroup/Enemy/Behaviours/Patrol|Patterns.BehaviourTree.Example.PatrolBehaviour
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209022].nodes.Array.data[0]'
+      value: 9174096537607209026
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209022].nodes.Array.data[1]'
+      value: 9174096537607209027
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209023].nodes.Array.data[0]'
+      value: 9174096537607209024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: 'managedReferences[9174096537607209023].nodes.Array.data[1]'
+      value: 9174096537607209025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: managedReferences[9174096537607209024].SelectedBehaviourId
+      value: EnemyGroup/Enemy/Behaviours/Attack|Patterns.BehaviourTree.Example.AttackBehaviour
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: managedReferences[9174096537607209025].SelectedBehaviourId
+      value: EnemyGroup/Enemy/Behaviours/Attack|Patterns.BehaviourTree.Example.AttackBehaviour
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: managedReferences[9174096537607209026].SelectedBehaviourId
+      value: EnemyGroup/Enemy/Behaviours/Chase|Patterns.BehaviourTree.Example.ChaseBehaviour
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788123276897953881, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}
+      propertyPath: managedReferences[9174096537607209027].SelectedBehaviourId
       value: EnemyGroup/Enemy/Behaviours/Chase|Patterns.BehaviourTree.Example.ChaseBehaviour
       objectReference: {fileID: 0}
     - target: {fileID: 3505621133123159479, guid: 104a82f71d20a374c84c283794c0ebd1, type: 3}

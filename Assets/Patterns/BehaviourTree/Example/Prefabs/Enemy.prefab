@@ -50,57 +50,57 @@ MonoBehaviour:
   _blackboardSO: {fileID: 0}
   startRunning: 0
   node:
-    rid: 9174096514834497607
+    rid: 9174096514834497625
   references:
     version: 2
     RefIds:
-    - rid: 9174096514834497607
+    - rid: 9174096514834497625
       type: {class: Selector, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
       data:
         status: 2
         nodes:
-        - rid: 9174096514834497608
-        - rid: 9174096514834497609
-        - rid: 9174096514834497610
-    - rid: 9174096514834497608
+        - rid: 9174096514834497626
+        - rid: 9174096514834497627
+        - rid: 9174096514834497628
+    - rid: 9174096514834497626
       type: {class: Sequence, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
       data:
         status: 2
         nodes:
-        - rid: 9174096514834497611
-        - rid: 9174096514834497616
-    - rid: 9174096514834497609
+        - rid: 9174096514834497629
+        - rid: 9174096514834497630
+    - rid: 9174096514834497627
       type: {class: Sequence, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
       data:
         status: 2
         nodes:
-        - rid: 9174096514834497615
-        - rid: 9174096514834497613
-    - rid: 9174096514834497610
+        - rid: 9174096514834497631
+        - rid: 9174096514834497632
+    - rid: 9174096514834497628
       type: {class: Action, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
       data:
         status: 2
-        SelectedBehaviourId: 
-    - rid: 9174096514834497611
+        SelectedBehaviourId: EnemyGroup/Enemy/Behaviours/Patrol|Patterns.BehaviourTree.Example.PatrolBehaviour
+    - rid: 9174096514834497629
       type: {class: Condition, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
       data:
         status: 2
         SelectedBehaviourId: EnemyGroup/Enemy/Behaviours/Attack|Patterns.BehaviourTree.Example.AttackBehaviour
-    - rid: 9174096514834497613
+    - rid: 9174096514834497630
+      type: {class: Action, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
+      data:
+        status: 2
+        SelectedBehaviourId: EnemyGroup/Enemy/Behaviours/Attack|Patterns.BehaviourTree.Example.AttackBehaviour
+    - rid: 9174096514834497631
+      type: {class: Condition, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
+      data:
+        status: 2
+        SelectedBehaviourId: EnemyGroup/Enemy/Behaviours/Chase|Patterns.BehaviourTree.Example.ChaseBehaviour
+    - rid: 9174096514834497632
       type: {class: Action, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
       data:
         status: 2
         SelectedBehaviourId: EnemyGroup/Enemy/Behaviours/Chase|Patterns.BehaviourTree.Example.ChaseBehaviour
-    - rid: 9174096514834497615
-      type: {class: Condition, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
-      data:
-        status: 2
-        SelectedBehaviourId: 
-    - rid: 9174096514834497616
-      type: {class: Action, ns: Patterns.BehaviourTree, asm: Runtime.Patterns.BehaviourTree}
-      data:
-        status: 2
-        SelectedBehaviourId: EnemyGroup/Enemy/Behaviours/Attack|Patterns.BehaviourTree.Example.AttackBehaviour
 --- !u!1 &3008531864097284977
 GameObject:
   m_ObjectHideFlags: 0
